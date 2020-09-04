@@ -27,6 +27,16 @@ const gradeSchema = mongoose.Schema({
   },
 });
 
+// método para converter _id para o id que será reconhecido pelo frontend
+// com esse método eu altero a estrutura do objeto, mudando _id para id
+gradeSchema.method('toJSON', function () {
+  const { __v, _id, ...object } = this.toObject();
+
+  object.id = _id;
+
+  return object;
+});
+
 const gradeModel = mongoose.model('grade', gradeSchema);
 
 export { gradeModel };
