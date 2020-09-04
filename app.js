@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://grades-app-frontend.herokuapp.com/',
+    origin: 'https://grades-app-frontend.herokuapp.com',
   })
 );
 app.use(gradeRouter);
